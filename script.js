@@ -4,32 +4,16 @@ let winCount = 0
 function getComputerChoice(){
     return RPS[Math.floor(Math.random()*RPS.length)];
 }
-function playRound(playerChoice){
-    let computerChoice = getComputerChoice();
-    if (playerChoice === computerChoice){
-        console.log("player choice: " + playerChoice);
-        console.log("computer choice: " + computerChoice);
-        return "Draw";
-    }
-    else if (computerChoice === "Paper") {
-        console.log("player choice: " + playerChoice);
-        console.log("computer choice: " + computerChoice);
-        winCount--;
-       // console.log(winCount)
-        return "Computer wins the round!";
-        
-    }
-    else {
-        console.log("player choice: " + playerChoice);
-        console.log("computer choice: " + computerChoice);
-        winCount++;
-       // console.log(winCount)
-        return "Player wins the round!";
 
-    }
+function myFunction(e){
+    playerChoice = "";
+    console.log(e.target.className);
+    playerChoice = e.target.className;
+    console.log("player chose: " + playerChoice);
 }
+
+
 function game(){
-    playerChoice = prompt("Rock, Paper or Scissors?: ");
     
     if (winCount > 0) {
         console.log("Player wins with score of: " + winCount);
@@ -41,3 +25,4 @@ function game(){
         console.log("Game Draw!");
     }
 }
+window.addEventListener("click", myFunction)
