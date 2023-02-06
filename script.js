@@ -1,5 +1,5 @@
 const RPS = ["Rock", "Paper", "Scissors"];
-const playerChoice = "Rock"
+let playerChoice ;
 let winCount = 0
 function getComputerChoice(){
     return RPS[Math.floor(Math.random()*RPS.length)];
@@ -29,11 +29,8 @@ function playRound(playerChoice){
     }
 }
 function game(){
+    playerChoice = prompt("Rock, Paper or Scissors?: ");
     
-    for (let i = 0; i < 5; i++){
-        playRound(playerChoice);
-        }
-    console.log("Finished 5 games.")
     if (winCount > 0) {
         console.log("Player wins with score of: " + winCount);
     }
