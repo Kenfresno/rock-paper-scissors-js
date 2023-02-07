@@ -9,9 +9,14 @@ btnContainer = document.querySelector("body");
 function getComputerChoice(){
     return RPS[Math.floor(Math.random()*RPS.length)];
 }
+function removeTransition(e){
+    e.target.classList.remove("playing"); 
+}
+
 function game(e){
     playerChoice = e.target.id;
     computerChoice = getComputerChoice();
+    e.target.classList.add("playing");
 
     if (playerChoice == "Rock" && computerChoice == "Scissors" || playerChoice == "Scissors" && computerChoice == "Paper" || 
         playerChoice == "Paper" && computerChoice == "Rock") {
@@ -44,4 +49,5 @@ function game(e){
 buttons = document.getElementsByTagName("button");
 for (const button of buttons) {
     button.addEventListener("click",game);
+    button.addEventListener("transitionend",removeTransition);
 }

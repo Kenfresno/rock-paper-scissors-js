@@ -14,7 +14,13 @@ button {
     border-color: whitesmoke;
     border-radius: 0.5rem;
     margin: 40px;
+    transition: all .07s ease
 }
+.playing {
+    transform: scale(1.5);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+  }
 .Container {
     height: 200px;
     display:flex;
