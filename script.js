@@ -3,36 +3,45 @@ let playerChoice ;
 let winCount = 0
 const para = document.createElement("p");
 const paraTwo = document.createElement("p");
+const paraThree = document.createElement("p");
+paraThree.textContent = "Current score: " + winCount;
 btnContainer = document.querySelector("body");
 function getComputerChoice(){
     return RPS[Math.floor(Math.random()*RPS.length)];
 }
-
-
-
 function game(e){
-    playerChoice = e.target.className;
+    playerChoice = e.target.id;
     computerChoice = getComputerChoice();
 
-    if (playerChoice == "Rock" && computerChoice == "Scissors" || playerChoice == "Scissors" && computerChoice == "Paper" || playerChoice == "Paper" && computerChoice == "Rock") {
+    if (playerChoice == "Rock" && computerChoice == "Scissors" || playerChoice == "Scissors" && computerChoice == "Paper" || 
+        playerChoice == "Paper" && computerChoice == "Rock") {
         paraTwo.textContent = "The player has chosen: " + playerChoice + " | The Computer has chosen: " + computerChoice + "!";
         winCount ++; 
-        para.textContent = "Player wins with score of: " + winCount;
-        btnContainer.appendChild(paraTwo)
+        para.textContent = "Player wins!";
+        btnContainer.appendChild(paraTwo);
         btnContainer.appendChild(para);
+        paraThree.textContent = "Current score: " + winCount;
+        btnContainer.appendChild(paraThree);
     }
     else if (playerChoice == "Scissors" && computerChoice == "Rock" || playerChoice == "Paper" && computerChoice == "Scissors" || playerChoice == "Rock" && computerChoice == "Paper") {
         paraTwo.textContent = "The player has chosen: " + playerChoice + " | The Computer has chosen: " + computerChoice + "!";
         winCount --;
-        para.textContent = "Computer wins with score of: "+ winCount;
-        btnContainer.appendChild(paraTwo)
+        para.textContent = "Computer wins!";
+        btnContainer.appendChild(paraTwo);
         btnContainer.appendChild(para);
+        paraThree.textContent = "Current score: " + winCount;
+        btnContainer.appendChild(paraThree);
     }
     else {
         paraTwo.textContent = "The player has chosen: " + playerChoice + " | The Computer has chosen: " + computerChoice + "!";
-        para.textContent = "Game Draw! Score sits at: " + winCount;
-        btnContainer.appendChild(paraTwo)
+        para.textContent = "Game Draw!";
+        btnContainer.appendChild(paraTwo);
         btnContainer.appendChild(para);
+        paraThree.textContent = "Current score: " + winCount;
+        btnContainer.appendChild(paraThree);
     }
 }
-window.addEventListener("click", game);
+buttons = document.getElementsByTagName("button");
+for (const button of buttons) {
+    button.addEventListener("click",game);
+}

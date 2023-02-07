@@ -1,4 +1,20 @@
-
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #ffff00;
+    background-color: #202020;
+}
+button {
+    height: 90px;
+    width: 90px;
+    font-size: 2em;
+    background: None;
+    border: 3px;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 0.5rem;
+    margin: 40px;
+}
 .Container {
     height: 200px;
     display:flex;
@@ -6,7 +22,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .Results {
     margin: 1rem;
 }
