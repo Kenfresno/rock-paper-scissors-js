@@ -31,3 +31,9 @@ button {
 .Results {
     margin: 1rem;
 }
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
